@@ -1,0 +1,108 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Login Page */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+}
+
+.login-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: none;
+}
+
+.login-card h1 {
+    color: #0d6efd;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.logo {
+    color: #0d6efd;
+}
+
+/* Voice Validation */
+.phrase-box {
+    border-left: 4px solid #0d6efd;
+    background-color: #f8f9fa;
+    margin: 1.5rem 0;
+}
+
+.waveform {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100px;
+    gap: 8px;
+    margin: 2rem 0;
+}
+
+.wave-bar {
+    width: 12px;
+    background-color: #0d6efd;
+    border-radius: 6px;
+    transition: height 0.1s ease;
+    height: 10%;
+}
+
+.btn-lg {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.1rem;
+    margin: 0 0.5rem;
+}
+
+/* Dashboard */
+.card {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 1rem 1.5rem;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+/* Animation for recording */
+@keyframes pulse {
+    0% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.6; transform: scale(1); }
+}
+
+.recording {
+    animation: pulse 1.5s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .login-card {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .waveform {
+        height: 80px;
+    }
+
+    .btn-lg {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}

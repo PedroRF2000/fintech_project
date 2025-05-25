@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoSign - Validação por Voz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-mic-fill me-2"></i>
+                EchoSign
+            </a>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0"><i class="bi bi-mic me-2"></i> Validação por Voz</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <p class="lead mb-4">Para validar sua identidade, por favor leia a frase abaixo:</p>
+                        
+                        <div class="phrase-box">
+                            <p id="validationPhrase" class="h5">Carregando frase de validação...</p>
+                        </div>
+                        
+                        <div class="voice-recorder mb-4">
+                            <div class="waveform mb-3" id="waveform">
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                                <div class="wave-bar"></div>
+                            </div>
+                            
+                            <button id="recordButton" class="btn btn-primary btn-lg mb-2">
+                                <i class="bi bi-mic-fill me-2"></i> Iniciar Gravação
+                            </button>
+                            <button id="stopButton" class="btn btn-danger btn-lg mb-2" disabled>
+                                <i class="bi bi-stop-fill me-2"></i> Parar Gravação
+                            </button>
+                        </div>
+                        
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle me-2"></i> Mantenha o microfone cerca de 15cm da boca e leia claramente.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/voice-validation.js"></script>
+    <script>
+        // Configura frase específica para cada documento
+        document.addEventListener('DOMContentLoaded', function() {
+            const phrases = {
+                'contrato-servicos': 'Eu concordo com os termos do contrato de serviços número 2023-0456',
+                'termo-confidencialidade': 'Confirmo que entendi e aceito os termos de confidencialidade',
+                'contrato-parceria': 'Autorizo a parceria comercial com a DigitalMind conforme contrato',
+                'aditivo-contratual': 'Aceito as alterações contratuais do aditivo número 3',
+                'proposta-comercial': 'Aprovo a proposta comercial para o projeto FutureVision'
+            };
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const docId = urlParams.get('doc') || 'contrato-servicos';
+            
+            document.getElementById('validationPhrase').textContent = 
+                phrases[docId] || 'Por favor, leia esta frase em voz alta para validação';
+        });
+    </script>
+</body>
+</html>
