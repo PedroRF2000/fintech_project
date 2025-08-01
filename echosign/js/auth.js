@@ -1,4 +1,3 @@
-// Verifica autenticação ao carregar qualquer página
 document.addEventListener('DOMContentLoaded', function() {
     const allowedPages = ['login.html'];
     const currentPage = window.location.pathname.split('/').pop();
@@ -10,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// login.html
 if (document.getElementById('loginForm')) {
     document.getElementById('loginForm').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -19,7 +17,6 @@ if (document.getElementById('loginForm')) {
     });
 }
 
-// Logout
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('logout-btn')) {
         e.preventDefault();
